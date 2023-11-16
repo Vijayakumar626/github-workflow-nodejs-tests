@@ -28,3 +28,11 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
+
+    - name: Artifact    
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: tests/
+        if-no-files-found: error
+        retention-days: 90
